@@ -3,5 +3,5 @@
     $prenom="Kone";
     echo("$nom ");
     echo($prenom."<br>");
-    echo("$nom\t$prenom<br>");
+    echo("$nom $prenom<br>");
     echo($nom." ". $prenom);
