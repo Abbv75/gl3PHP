@@ -20,8 +20,8 @@
                 for($i=0; $i<10; $i++){
             ?>
                     <tr>
-                        <td><?php echo($i+1); ?></td>
-                        <td><?php echo($note[]=rand(1, 60000)); ?></td>
+                        <td><?php echo($i+1) ?></td>
+                        <td><?php echo($note[]=rand(1, 20)) ?></td>
                     </tr>
             <?php
                     $calcule+=$note[$i];

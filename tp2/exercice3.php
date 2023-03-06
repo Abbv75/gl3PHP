@@ -34,7 +34,7 @@
                     <tr>
                         <td></td>
                         <td><?php echo($val) ?></td>
-                        <td><?php echo($val*655.5)?></td>
+                        <td><?php echo($val/655.5)?></td>
                     </tr>
             <?php
                 }
@@ -42,7 +42,7 @@
             <tr>
                 <td>Total</td>
                 <td><?php echo($sum)?></td>
-                <td><?php echo($sum*655.5)?></td>
+                <td><?php echo($sum/655.5)?></td>
             </tr>
         </tbody>
     </table>

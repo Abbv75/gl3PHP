@@ -16,7 +16,6 @@
         </thead>
         <tbody>
             <?php
-                $calcule=0;
                 $nom=[
                     'Jean', 
                     'Pierre', 
