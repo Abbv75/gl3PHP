@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(45deg, rgb(255, 126, 126),rgb(241, 167, 241),  rgb(219, 159, 48));
+}
+
+table{
+    border-collapse: collapse;
+    background: white;
+    border-radius: 15px 15px 0 0px;
+    overflow: hidden;
+}
+
+thead{
+    background: orange;
+    color: white;
+}
+
+table tr, table th{
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid purple;
+}
+
+table tr:hover{
+    background: grey;
+    color: white;
+    cursor: pointer;
+}
+
+table tr:last-child{
+    border: none;
+}
+
+table td{
+    padding: 10px;
+}
+
+.passField{
+    font-weight: bold;
+}
+
+.off{
+    filter: blur(3px);
+}

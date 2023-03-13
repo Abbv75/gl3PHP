@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <form action="../list/etudiant.php" method="post">
+        <div>
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" placeholder="Votre nom" id="nom">
+        </div>
+        <div>
+            <label for="prenom">prenom</label>
+            <input type="text" name="prenom" placeholder="Votre prenom" id="prenom">
+        </div>
+        <div>
+            <label for="class">Classe</label>
+
+            <select name="class" id="class">
+                <option value="">Gl3</option>
+                <option value="">ISR</option>
+                <option value="">Mmiage</option>
+            </select>
+        </div>
+        <div>
+            <label for="tel">Nom</label>
+            <input type="text" name="tel" placeholder="le numero de telephone" id="tel">
+        </div>
+        <div class="btnZone">
+            <button type="submit">Valider</button>
+            <button type="reset">reset</button>
+        </div>
+    </form>
+</body>
+</html>
