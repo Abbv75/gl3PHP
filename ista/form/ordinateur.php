@@ -29,8 +29,16 @@
         <div>
             <label for="etudiant">Etudiant</label>
             <select name="etudiant" id="etudiant">
-                <option value="1">Etudiant1 - id</option>
-                <option value="1">Etudiant1 - id</option>
+                <?php
+                    require("../connecteDb.php");
+                    $query = $bdd->query('SELECT * FROM etudiant ORDER BY nom');
+                    while($res = $query->fetch()){
+                ?>
+                        <option value="<?php echo($res['ide']) ?>"><?php echo($res['nom']. "--". $res['prenom']) ?></option>
+                <?php
+                    }
+                ?>
+
             </select>
         </div>
         <div class="btnZone">

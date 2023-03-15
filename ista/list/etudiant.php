@@ -18,20 +18,31 @@
             <th>Telephone</th>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
+            <?php
+                require("../connecteDb.php");
+                $query = $bdd->query('SELECT * FROM etudiant ORDER BY nom');
+                while($res = $query->fetch()){
+            ?>
+                    <tr>
+                        <td>
+                            <?php echo($res['ide']) ?>
+                        </td>
+                        <td>
+                            <?php echo($res['nom']) ?>
+                        </td>
+                        <td>
+                            <?php echo($res['prenom']) ?>
+                        </td>
+                        <td>
+                            <?php echo($res['classe']) ?>
+                        </td>
+                        <td>
+                            <?php echo($res['telephone']) ?>
+                        </td>
+                    </tr>
+            <?php
+                }
+            ?>
         </tbody>
     </table>
 </body>
