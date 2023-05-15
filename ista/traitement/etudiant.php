@@ -4,20 +4,43 @@
         extract($_POST);
 
         if(!isset($_POST['nom'], $_POST['prenom'], $_POST['classe'], $_POST['telephone'])){
-            header('Location: ../form/etudiant.html');
+            header('Location: ../form/etudiant.php');
             exit();
         }
 
-        $query = $bdd->prepare('INSERT INTO etudiant (nom, prenom, classe, telephone) VALUES (?,?,?,?)');
-        
-        if(!$query->execute(array($nom, $prenom, $classe, $telephone))){
-            header('Location: ../form/etudiant.html');
-            exit();
+        $result = false;
+
+        if(isset($_POST['idEtudiant'])){
+            $query = $bdd->prepare("UPDATE etudiant SET nom=?, prenom=?, classe=?, telephone=? WHERE ide=?");
+            
+            $result = $query->execute([
+                $nom,
+                $prenom,
+                $classe,
+                $telephone,
+                $idEtudiant
+            ]);       
+        }
+        else{
+            $query = $bdd->prepare('INSERT INTO etudiant (nom, prenom, classe, telephone) VALUES (?,?,?,?)');
+            
+            $result = $query->execute([
+                $nom, 
+                $prenom, 
+                $classe, 
+                $telephone
+            ]);
         }
 
-        header('Location: ../list/etudiant.php');
+        if($result){
+            header('Location: ../list/etudiant.php');
+        }
+        else{
+            header('Location: ../form/etudiant.php');
+        }
+        exit();
     }
     catch(Exception $e){
-        header('Location: ../form/etudiant.html');
+        header('Location: ../form/etudiant.php');
     }
 ?>
