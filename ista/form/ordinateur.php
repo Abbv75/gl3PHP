@@ -1,3 +1,16 @@
+<?php
+    $res = false;
+    if(isset($_GET['idOrdinateur'])){
+        require("../connecteDb.php");
+        $query = $bdd->prepare("SELECT * FROM ordinateur WHERE id=?");
+        $query->execute([
+            $_GET['idOrdinateur']
+        ]);
+        $res = $query->fetch();
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,40 +22,97 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <form action="../list/ordinateur.php" method="post">
+    <form action="../traitement/ordinateur.php" method="post">
+        <?php
+            if($res != false){
+        ?>
+                <input 
+                    type="hidden" 
+                    name="idOrdinateur" 
+                    value="<?php echo($_GET['idOrdinateur']) ?>"
+                >
+        <?php
+            }
+        ?>
         <div>
-            <label for="marque">Marque</label>
-            <input type="text" name="marque" placeholder="Votre nom" id="marque">
-        </div>
-        <div>
-            <label for="couleur">Couleur</label>
-            <input type="text" name="couleur" placeholder="Votre prenom" id="couleur">
-        </div>
-        <div>
-            <label for="ram">Ram</label>
-            <input type="text" name="ram" id="ram">
-        </div>
-        <div>
-            <label for="disque">Disque</label>
-            <input type="text" name="disque" placeholder="le numero de telephone" id="disque">
-        </div>
-        <div>
-            <label for="etudiant">Etudiant</label>
-            <select name="etudiant" id="etudiant">
-                <?php
-                    require("../connecteDb.php");
-                    $query = $bdd->query('SELECT * FROM etudiant ORDER BY nom');
-                    while($res = $query->fetch()){
+            <label for="nom">Marque</label>
+            <input 
+                type="text" 
+                name="marque" 
+                placeholder="Saisissez la marque" 
+                id="marque" 
+                <?php 
+                    echo((!$res) ? "" : "value='".$res['marque']."'"); 
                 ?>
-                        <option value="<?php echo($res['ide']) ?>"><?php echo($res['nom']. "--". $res['prenom']) ?></option>
+                required
+            >
+        </div>
+        <div>
+            <label for="login">Couleur</label>
+            <input 
+                type="text" 
+                name="couleur" 
+                placeholder="Votre couleur" 
+                id="couleur" 
+                <?php 
+                    echo((!$res) ? "" : "value='".$res['couleur']."'"); 
+                ?>
+                required
+            >
+        </div>
+       
+        <div>
+            <label for="password">Nombre de ram</label>
+            <input 
+                type="number" 
+                name="ram" 
+                id="ram" 
+                <?php 
+                    echo((!$res) ? "" : "value='".$res['ram']."'"); 
+                ?>
+                required
+            >
+        </div>
+        
+        <div>
+            <label for="password">Stockage</label>
+            <input 
+                type="number" 
+                name="disque" 
+                id="disque" 
+                <?php 
+                    echo((!$res) ? "" : "value='".$res['disque']."'"); 
+                ?>
+                required
+            >
+        </div>
+
+        <div>
+            <label for="classe">Proprietaire</label>
+
+            <select name="ide" id="ide" required>
+                <?php
+                    $query = $bdd->query("SELECT * FROM etudiant ORDER BY nom");
+                    while($resTmp = $query->fetch()){
+                ?>
+                        <option 
+                            value="<?php echo($resTmp['ide']) ?>" 
+                            <?php
+                                if($res != false){
+                                    echo(($resTmp['ide'] != $res['ide']) ? "" : "selected");
+                                }
+                            ?>
+                        >
+                            <?php echo($resTmp['nom']) ?>
+                        </option>
                 <?php
                     }
                 ?>
-
             </select>
         </div>
+
         <div class="btnZone">
-            <button type="submit">Valider</button>
+            <button type="submit"><?php echo(($res!= false) ? "Modifer" : "Ajouter") ?></button>
             <button type="reset">reset</button>
         </div>
     </form>

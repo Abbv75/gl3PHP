@@ -32,7 +32,7 @@ if (isset($_GET['idUtilisateur'])) {
             <th>#</th>
             <th>Nom</th>
             <th>Login</th>
-            <th>Password</th>
+            <th>Mot de passe</th>
             <th>Action</th>
         </thead>
         <tbody>
