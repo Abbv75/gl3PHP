@@ -17,11 +17,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gerez vos etudians</title>
 
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <?php
+        include("../head.php");
+    ?>
     <form action="../traitement/etudiant.php" method="post">
         <?php
             if($res != false){
@@ -108,5 +111,8 @@
             <button type="reset">reset</button>
         </div>
     </form>
+    <?php
+        include("../foot.php");
+    ?>
 </body>
 </html>

@@ -1,4 +1,4 @@
-body{
+/* body{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,7 @@ body{
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: linear-gradient(45deg, rgb(255, 126, 126),rgb(241, 167, 241),  rgb(219, 159, 48));
-}
+} */
 
 form{
     min-width: 300px;

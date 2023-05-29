@@ -1,8 +1,8 @@
 <?php
     $res = false;
+    require("../connecteDb.php");
     if(isset($_GET['idOrdinateur'])){
-        require("../connecteDb.php");
-        $query = $bdd->prepare("SELECT * FROM ordinateur WHERE id=?");
+        $query = $bdd->prepare("SELECT * FROM ordinateur WHERE idord=?");
         $query->execute([
             $_GET['idOrdinateur']
         ]);
@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ordinateur</title>
+    <title>Gerez vos Ordinateurs</title>
 
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -92,7 +92,7 @@
 
             <select name="ide" id="ide" required>
                 <?php
-                    $query = $bdd->query("SELECT * FROM etudiant ORDER BY nom");
+                    $query = $bdd->query("SELECT * FROM etudiant");
                     while($resTmp = $query->fetch()){
                 ?>
                         <option 
