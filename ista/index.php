@@ -1,6 +1,7 @@
 <?php
   ob_start();
   session_start();
+  $res = false;
   if(isset($_POST['login'], $_POST['password'])){
     extract($_POST);
     require("connexion.php");

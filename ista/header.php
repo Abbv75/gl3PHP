@@ -14,7 +14,11 @@
                         <img src="./production/images/img.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
-                        <span><?php echo(isset($_SESSION['nom']) ? $_SESSION['nom'] : null) ?></span>
+                        <?php session_start(); ?>
+
+                        <span>
+                            <?php echo (isset($_SESSION['nom']) ? $_SESSION['nom'] : null) ?>
+                        </span>
                         <h2>En ligne</h2>
                     </div>
                     <div class="clearfix"></div>
@@ -28,21 +32,24 @@
                     <div class="menu_section">
                         <h3>General</h3>
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-edit"></i> Gestion des Etudiants <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-edit"></i> Gestion des Etudiants <span
+                                        class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="etudiant_form.php">Nouvel Etudiant</a></li>
                                     <li><a href="etudiant_list.php">Liste des Etudiants</a></li>
 
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-desktop"></i> Gestion des Ordinateurs <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-desktop"></i> Gestion des Ordinateurs <span
+                                        class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="ordinateur_form.php">Nouvel Ordinateur</a></li>
                                     <li><a href="ordinateur_list.php">Liste des Ordinateurs</a></li>
 
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-table"></i> Gestion des utilisateurs <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-table"></i> Gestion des utilisateurs <span
+                                        class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="utilisateur_form.php">Nouvel utilisateur</a></li>
                                     <li><a href="utulisateur_list.php">Liste des utilisateurs</a></li>
@@ -67,7 +74,7 @@
                     <a data-toggle="tooltip" data-placement="top" title="Lock">
                         <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                    <a data-toggle="tooltip" data-placement="top" title="Deconnexion" href="logout.php">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -84,9 +91,10 @@
                 <nav class="nav navbar-nav">
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
-                            <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
+                                id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                                 <img src="./production/images/img.jpg" alt="">
-                                <?php echo(isset($_SESSION['nom']) ? $_SESSION['nom'] : null) ?>
+                                <?php echo (isset($_SESSION['nom']) ? $_SESSION['nom'] : null) ?>
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="javascript:;"> Profile</a>
@@ -95,61 +103,72 @@
                                     <span>Settings</span>
                                 </a>
                                 <a class="dropdown-item" href="javascript:;">Help</a>
-                                <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out pull-right"></i>
+                                    Deconnexion</a>
                             </div>
                         </li>
 
                         <li role="presentation" class="nav-item dropdown open">
-                            <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                            <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
+                                data-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-envelope-o"></i>
                                 <span class="badge bg-green">6</span>
                             </a>
-                            <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                            <ul class="dropdown-menu list-unstyled msg_list" role="menu"
+                                aria-labelledby="navbarDropdown1">
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="./production/images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="./production/images/img.jpg"
+                                                alt="Profile Image" /></span>
                                         <span>
                                             <span>John Smith</span>
                                             <span class="time">3 mins ago</span>
                                         </span>
                                         <span class="message">
-                                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            Film festivals used to be do-or-die moments for movie makers. They were
+                                            where...
                                         </span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="./production/images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="./production/images/img.jpg"
+                                                alt="Profile Image" /></span>
                                         <span>
                                             <span>John Smith</span>
                                             <span class="time">3 mins ago</span>
                                         </span>
                                         <span class="message">
-                                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            Film festivals used to be do-or-die moments for movie makers. They were
+                                            where...
                                         </span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="./production/images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="./production/images/img.jpg"
+                                                alt="Profile Image" /></span>
                                         <span>
                                             <span>John Smith</span>
                                             <span class="time">3 mins ago</span>
                                         </span>
                                         <span class="message">
-                                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            Film festivals used to be do-or-die moments for movie makers. They were
+                                            where...
                                         </span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="./production/images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="./production/images/img.jpg"
+                                                alt="Profile Image" /></span>
                                         <span>
                                             <span>John Smith</span>
                                             <span class="time">3 mins ago</span>
                                         </span>
                                         <span class="message">
-                                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            Film festivals used to be do-or-die moments for movie makers. They were
+                                            where...
                                         </span>
                                     </a>
                                 </li>
@@ -200,7 +219,8 @@
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                            aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="#">Settings 1</a>
                                             <a class="dropdown-item" href="#">Settings 2</a>

@@ -13,7 +13,7 @@ if (isset($_GET['ids'])) {
 
 <?php include 'head.php' ?>
 
-<body>
+<body class="nav-md">
     <?php include 'header.php' ?>
     <table id="datatable" class="table table-striped table-bordered" style="width:100%">
         <thead>
